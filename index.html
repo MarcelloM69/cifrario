@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesso Cifrario Vigenère</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: #121212; color: white; padding: 50px; }
+        .box { max-width: 400px; margin: auto; background: #222; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        input { width: 80%; padding: 10px; margin: 15px 0; border: none; border-radius: 5px; font-size: 16px; text-transform: uppercase; text-align: center; }
+        button { background: #00adb5; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #00757d; }
+        .error { color: #ff2e63; margin-top: 10px; display: none; }
+        .success { display: none; margin-top: 20px; }
+        img { max-width: 100%; border-radius: 5px; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>🔓 Sistema di Decrittazione</h2>
+    <p>Inserisci la parola chiave per sbloccare la tabella di Vigenère:</p>
+    
+    <input type="text" id="passwordInput" placeholder="PAROLA CHIAVE">
+    <button onclick="verificaChiave()">SBLOCCA</button>
+    
+    <p id="errorMsg" class="error">❌ Chiave errata. Riprova.</p>
+
+    <!-- Contenuto nascosto che appare solo se la chiave è corretta -->
+    <div id="secretContent" class="success">
+        <h3>✅ Accesso Consentito</h3>
+        <p>Ecco la tua tabella di decodifica:</p>
+        <!-- Puoi mettere il link del tuo Dropbox qui sotto nell'attributo src -->
+        <img src="https://wikimedia.org" alt="Tabella Vigenere">
+    </div>
+</div>
+
+<script>
+function verificaChiave() {
+    // Sostituisci 'CHIAVE' con la tua parola d'ordine reale (in maiuscolo)
+    const chiaveCorretta = "CHIAVE"; 
+    const input = document.getElementById("passwordInput").value.trim().toUpperCase();
+    const errore = document.getElementById("errorMsg");
+    const contenuto = document.getElementById("secretContent");
+
+    if (input === chiaveCorretta) {
+        contenuto.style.display = "block";
+        errore.style.style.display = "none";
+    } else {
+        errore.style.display = "block";
+        contenuto.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
