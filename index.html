@@ -11,8 +11,6 @@
         button { background: #00adb5; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; }
         button:hover { background: #00757d; }
         .error { color: #ff2e63; margin-top: 10px; display: none; }
-        .success { display: none; margin-top: 20px; }
-        img { max-width: 100%; border-radius: 5px; margin-top: 15px; }
     </style>
 </head>
 <body>
@@ -21,37 +19,33 @@
     <h2>🔓 Sistema di Decrittazione</h2>
     <p>Inserisci la parola chiave per sbloccare la tabella di Vigenère:</p>
     
-    <input type="text" id="passwordInput" placeholder="PAROLA CHIAVE">
+    <input type="text" id="passwordInput" placeholder="https://www.dropbox.com/scl/fi/g7dzx4pacftgz18w6cj7z/TABELLA-DECODIFICA.pdf?rlkey=vfd6n4ey62p6npn61leke2cda&dl=0">
     <button onclick="verificaChiave()">SBLOCCA</button>
     
     <p id="errorMsg" class="error">❌ Chiave errata. Riprova.</p>
-
-    <!-- Contenuto nascosto che appare solo se la chiave è corretta -->
-    <div id="secretContent" class="success">
-        <h3>✅ Accesso Consentito</h3>
-        <p>Ecco la tua tabella di decodifica:</p>
-        <!-- Puoi mettere il link del tuo Dropbox qui sotto nell'attributo src -->
-        <img src="https://wikimedia.org" alt="Tabella Vigenere">
-    </div>
 </div>
 
 <script>
 function verificaChiave() {
-    // Sostituisci 'CHIAVE' con la tua parola d'ordine reale (in maiuscolo)
+    // 1. INSERISCI QUI LA PAROLA CHIAVE REALE (IN MAIUSCOLO)
     const chiaveCorretta = "CHIAVE"; 
+    
+    // 2. INSERISCI QUI IL TUO LINK DROPBOX (ricorda di mettere ?dl=1 alla fine!)
+    const linkDropbox = "https://dropbox.com";
+
     const input = document.getElementById("passwordInput").value.trim().toUpperCase();
     const errore = document.getElementById("errorMsg");
-    const contenuto = document.getElementById("secretContent");
 
     if (input === chiaveCorretta) {
-        contenuto.style.display = "block";
-        errore.style.style.display = "none";
+        // Se la chiave è giusta, il browser apre immediatamente il link Dropbox
+        window.location.href = linkDropbox;
     } else {
+        // Se è sbagliata, mostra l'errore
         errore.style.display = "block";
-        contenuto.style.display = "none";
     }
 }
 </script>
 
 </body>
 </html>
+
