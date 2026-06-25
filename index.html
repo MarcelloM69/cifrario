@@ -7,7 +7,7 @@
     <style>
         body { font-family: Arial, sans-serif; text-align: center; background: #121212; color: white; padding: 50px; }
         .box { max-width: 400px; margin: auto; background: #222; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        input { width: 80%; padding: 10px; margin: 15px 0; border: none; border-radius: 5px; font-size: 16px; text-transform: uppercase; text-align: center; }
+        input { width: 80%; padding: 10px; margin: 15px 0; border: none; border-radius: 5px; font-size: 16px; text-transform: uppercase; text-align: center; color: #ffffff; background: #333; }
         button { background: #00adb5; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; }
         button:hover { background: #00757d; }
         .error { color: #ff2e63; margin-top: 10px; display: none; }
@@ -19,7 +19,8 @@
     <h2>🔓 Sistema di Decrittazione</h2>
     <p>Inserisci la parola chiave per sbloccare la tabella di Vigenère:</p>
     
-    <input type="text" id="passwordInput" placeholder="PAROLA CHIAVE">
+    <!-- Ho aggiunto i blocchi per impedire al telefono di ricordare i testi vecchi -->
+    <input type="text" id="codiceSegretoInput" placeholder="INSERISCI QUI" autocomplete="off" autocapitalize="characters" spellcheck="false">
     <button onclick="verificaChiave()">SBLOCCA</button>
     
     <p id="errorMsg" class="error">❌ Chiave errata. Riprova.</p>
@@ -27,14 +28,11 @@
 
 <script>
 function verificaChiave() {
-    // La tua parola chiave salvata correttamente
     const chiaveCorretta = "AMORE"; 
-    
-    // NOTA: Sostituisci questo link generico con il link esatto del tuo file su Dropbox!
-    // Ricorda di mettere ?dl=1 alla fine del link Dropbox per il download diretto.
-    const linkDropbox = "https://www.dropbox.com/scl/fi/g7dzx4pacftgz18w6cj7z/TABELLA-DECODIFICA.pdf?rlkey=vfd6n4ey62p6npn61leke2cda&dl=0";
+    const linkDropbox = "https://www.dropbox.com/scl/fi/g7dzx4pacftgz18w6cj7z/TABELLA-DECODIFICA.pdf?rlkey=vfd6n4ey62p6npn61leke2cda&dl=0"; // Inserisci qui il tuo link specifico di Dropbox
 
-    const input = document.getElementById("passwordInput").value.trim().toUpperCase();
+    // Legge il nuovo ID modificato
+    const input = document.getElementById("codiceSegretoInput").value.trim().toUpperCase();
     const errore = document.getElementById("errorMsg");
 
     if (input === chiaveCorretta) {
