@@ -19,7 +19,7 @@
     <h2>🔓 Sistema di Decrittazione</h2>
     <p>Inserisci la parola chiave per sbloccare la tabella di Vigenère:</p>
     
-    <input type="text" id="passwordInput" placeholder="AMORE">
+    <input type="text" id="passwordInput" placeholder="PAROLA CHIAVE">
     <button onclick="verificaChiave()">SBLOCCA</button>
     
     <p id="errorMsg" class="error">❌ Chiave errata. Riprova.</p>
@@ -28,7 +28,7 @@
 <script>
 function verificaChiave() {
     // 1. INSERISCI QUI LA PAROLA CHIAVE REALE (IN MAIUSCOLO)
-    const chiaveCorretta = "CHIAVE"; 
+    const chiaveCorretta = "AMORE"; 
     
     // 2. INSERISCI QUI IL TUO LINK DROPBOX (ricorda di mettere ?dl=1 alla fine!)
     const linkDropbox = "https://dropbox.com";
@@ -48,4 +48,3 @@ function verificaChiave() {
 
 </body>
 </html>
-
