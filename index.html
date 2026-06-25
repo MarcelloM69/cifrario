@@ -27,20 +27,20 @@
 
 <script>
 function verificaChiave() {
-    // 1. INSERISCI QUI LA PAROLA CHIAVE REALE (IN MAIUSCOLO)
+    // La tua parola chiave salvata correttamente
     const chiaveCorretta = "AMORE"; 
     
-    // 2. INSERISCI QUI IL TUO LINK DROPBOX (ricorda di mettere ?dl=1 alla fine!)
+    // NOTA: Sostituisci questo link generico con il link esatto del tuo file su Dropbox!
+    // Ricorda di mettere ?dl=1 alla fine del link Dropbox per il download diretto.
     const linkDropbox = "https://dropbox.com";
 
     const input = document.getElementById("passwordInput").value.trim().toUpperCase();
     const errore = document.getElementById("errorMsg");
 
     if (input === chiaveCorretta) {
-        // Se la chiave è giusta, il browser apre immediatamente il link Dropbox
+        errore.style.display = "none";
         window.location.href = linkDropbox;
     } else {
-        // Se è sbagliata, mostra l'errore
         errore.style.display = "block";
     }
 }
