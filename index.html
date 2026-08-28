@@ -1,48 +1,25 @@
 <!DOCTYPE html>
-<html lang="it">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accesso Cifrario Vigenère</title>
+    <title>Link Protetto</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background: #121212; color: white; padding: 50px; }
-        .box { max-width: 400px; margin: auto; background: #222; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        input { width: 80%; padding: 10px; margin: 15px 0; border: none; border-radius: 5px; font-size: 16px; text-transform: uppercase; text-align: center; color: #ffffff; background: #333; }
-        button { background: #00adb5; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; }
-        button:hover { background: #00757d; }
-        .error { color: #ff2e63; margin-top: 10px; display: none; }
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f2f5; }
+        input { padding: 15px; font-size: 18px; border: 2px solid #ccc; border-radius: 8px; text-align: center; width: 250px; }
     </style>
 </head>
 <body>
+    <!-- Basta digitare: il controllo è automatico a ogni lettera inserita -->
+    <input type="password" id="key" placeholder="Inserisci la parola chiave" oninput="checkKey()">
 
-<div class="box">
-    <h2>🔓 Sistema di Decrittazione</h2>
-    <p>Inserisci la parola chiave per sbloccare la tabella di Vigenère:</p>
-    
-    <!-- Ho aggiunto i blocchi per impedire al telefono di ricordare i testi vecchi -->
-    <input type="text" id="codiceSegretoInput" placeholder="INSERISCI QUI" autocomplete="off" autocapitalize="characters" spellcheck="false">
-    <button onclick="verificaChiave()">SBLOCCA</button>
-    
-    <p id="errorMsg" class="error">❌ Chiave errata. Riprova.</p>
-</div>
-
-<script>
-function verificaChiave() {
-    const chiaveCorretta = "AMORE"; 
-    const linkDropbox = "https://www.dropbox.com/scl/fi/g7dzx4pacftgz18w6cj7z/TABELLA-DECODIFICA.pdf?rlkey=vfd6n4ey62p6npn61leke2cda&dl=1"; // Inserisci qui il tuo link specifico di Dropbox
-
-    // Legge il nuovo ID modificato
-    const input = document.getElementById("codiceSegretoInput").value.trim().toUpperCase();
-    const errore = document.getElementById("errorMsg");
-
-    if (input === chiaveCorretta) {
-        errore.style.display = "none";
-        window.location.href = linkDropbox;
-    } else {
-        errore.style.display = "block";
-    }
-}
-</script>
-
+    <script>
+        function checkKey() {
+            var input = document.getElementById("key").value;
+            
+            // SOSTITUISCI QUI LA TUA PAROLA CHIAVE E IL LINK DI DESTINAZIONE
+            if (input === "sempre") { 
+                window.location.href = "https://dl.dropboxusercontent.com/scl/fi/b8m3wgeyu0lcwedb3saml/AUGURI-GIAMMA.mp4?rlkey=67igon74kb6nyq6uzde7v5g0z&st=957udval&raw=1"; 
+            }
+        }
+    </script>
 </body>
 </html>
